@@ -9,3 +9,5 @@ if x <= 10 and x > 0:  # Überprüft, ob x kleiner oder gleich 10 und größer a
 else: # falls nicht x kleiner oder gleich 10 und größer als 0 ist:
     if x > 3 or y > 3:
         print("x ist größer als 3 oder y ist größer als 3")
+
+        

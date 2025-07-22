@@ -9,3 +9,6 @@ x = 1
 while x < 10:  # Solange x kleiner als 10 ist
     result = multiplyNumber(input_number, x)  # Aufruf der Funktion
     x += 1  # Erhöht x um 1
+
+
+    
