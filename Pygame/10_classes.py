@@ -11,22 +11,24 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("Mein Pygame Spiel")
 
 font = pygame.font.Font("Pygame/src/PixelifySans-Regular.ttf", 24)  # Schriftart von Datei laden und Größe festlegen
+class Player(): #neue Klasse für den Spieler, die alle Daten für diesen speichert
+    def __init__(self):
+        self.image = pygame.image.load("Pygame/src/example_image.png")  # Bild laden
+        self.position = [0,0] # Startposition des Spielers
 
-player_image = pygame.image.load("Pygame/src/example_image.png")  # Bild laden
+    def update(self):
+        if pygame.key.get_pressed()[pygame.K_UP]: # Steuerung des Spielers über Pfeiltasten
+            self.position[1] -= 10
+        if pygame.key.get_pressed()[pygame.K_DOWN]: 
+            self.position[1] += 10
+        if pygame.key.get_pressed()[pygame.K_LEFT]:  
+            self.position[0] -= 10
+        if pygame.key.get_pressed()[pygame.K_RIGHT]: 
+            self.position[0] += 10
 
-player_position = [0, 0] # Startposition des Spielers
-
-#Funktionen für das Spiel definieren:
-def player_controls(player_position): #Funktion, um den Spieler zu bewegen
-    if pygame.key.get_pressed()[pygame.K_UP]:
-        player_position[1] -= 10
-    if pygame.key.get_pressed()[pygame.K_DOWN]: 
-        player_position[1] += 10
-    if pygame.key.get_pressed()[pygame.K_LEFT]:  
-        player_position[0] -= 10
-    if pygame.key.get_pressed()[pygame.K_RIGHT]: 
-        player_position[0] += 10
-    return player_position
+        screen.blit(self.image, self.position)  # Spieler zeichnen
+        
+player = Player()  # Spieler erstellen
 
 def display_text(text, position): #Funktion, um Text an einer Position anzuzeigen
     score_text = font.render(text, True, (255,255,255))  # Text (in weiß) rendern
@@ -35,13 +37,10 @@ def display_text(text, position): #Funktion, um Text an einer Position anzuzeige
 
 while True:
     screen.fill((0, 0, 0))  # Fenster schwarz füllen
-
-    #Hier kommt die Logik des Spiels rein, z.B. das Zeichnen von Objekten, die Bewegung von Figuren, etc.
-    screen.blit(player_image, player_position)  #Spieler zeichnen
     
     display_text("Score:" + str(Score), (10, 10))  # den Punktestand anzeigen
  
-    player_position = player_controls(player_position) # Position des Spielers aktualisieren
+    player.update() # Position des Spielers aktualisieren
 
     clock.tick(FPS)  
     pygame.display.flip()  
