@@ -1,5 +1,6 @@
 import pygame
 import random
+
 pygame.init()
 
 FPS = 60   
