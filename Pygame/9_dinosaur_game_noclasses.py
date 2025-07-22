@@ -12,13 +12,13 @@ pygame.display.set_caption("Mein Pygame Spiel")
 
 font = pygame.font.Font("Pygame/src/PixelifySans-Regular.ttf", 24)  # Schriftart von Datei laden und Größe festlegen
 
-player_image = pygame.image.load("Pygame/src/example_image.png")  # Bild laden
-obstacle_image = pygame.image.load("Pygame/src/example_image.png")  # Bild für Hindernis laden
+player_image = pygame.image.load("Pygame/src/Dino.png")  # Bild laden
+obstacle_image = pygame.image.load("Pygame/src/Kaktus.png")  # Bild für Hindernis laden
 
-player_position = [100, 500] # Startposition des Spielers
+player_position = [100, 470] # Startposition des Spielers
 player_y_velocity = 0  # Vertikale Geschwindigkeit für Sprünge
 
-obstacle_position = [800, 500]  # Startposition des Hindernisses
+obstacle_position = [800, 480]  # Startposition des Hindernisses
 
 def update_obstacle(obstacle_position, Score):
     obstacle_position[0] -= 8  # Hindernis bewegt sich nach links
@@ -29,12 +29,12 @@ def update_obstacle(obstacle_position, Score):
 
 def move_player(player_position, player_y_velocity):
         #Spieler mit Pfeiltaste bewegen
-    if pygame.key.get_pressed()[pygame.K_SPACE] and player_position[1] == 500:
+    if pygame.key.get_pressed()[pygame.K_SPACE] and player_position[1] == 480:
         player_y_velocity = -25
     player_y_velocity += 1  # Schwerkraft
     player_position[1] += player_y_velocity  # Spieler in y-Richtung bewegen
-    if player_position[1] > 500:  # Spieler darf nicht unter den Boden fallen
-        player_position[1] = 500
+    if player_position[1] > 480:  # Spieler darf nicht unter den Boden fallen
+        player_position[1] = 480
         player_y_velocity = 0
     return player_position, player_y_velocity
 
@@ -48,7 +48,7 @@ def display_text(text, position): #Funktion, um Text an einer Position anzuzeige
     screen.blit(score_text, position)  # Text an der angegebenen Position zeichnen
 
 while True:
-    screen.fill((0, 0, 0))  # Fenster schwarz füllen
+    screen.fill((200, 220, 220))  # Fenster schwarz füllen
 
     #den Punktestand anzeigen
     display_text("Score:" + str(Score), (10, 10))  # den Punktestand anzeigen
