@@ -20,7 +20,7 @@ while True:
 
     #Hier kommt die Logik des Spiels rein, z.B. das Zeichnen von Objekten, die Bewegung von Figuren, etc.
 
-    screen.blit(example_image, (200, 200))  #example_image zeichnen
+    screen.blit(example_image, image_position)  #example_image zeichnen
 
     screen.blit(example_image, (image_position[0], image_position[1]))  # Bild an image_position zeichnen
     image_position[0] += 1  # Bild nach rechts bewegen

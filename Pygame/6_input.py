@@ -20,7 +20,7 @@ while True:
 
     #Hier kommt die Logik des Spiels rein, z.B. das Zeichnen von Objekten, die Bewegung von Figuren, etc.
 
-    screen.blit(player_image, (200, 200))  #example_image zeichnen
+    screen.blit(player_image, player_position)  #example_image zeichnen
 
     clock.tick(FPS)  
     pygame.display.flip()  
